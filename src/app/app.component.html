@@ -23,26 +23,7 @@
   </nav>
 </header>
 
-<ngb-carousel *ngIf="images.length > 1">
-	<ng-template ngbSlide *ngFor="let image of images">
-		<div class="picsum-img-wrapper">
-			<img [src]="percorso + image.id + '.jpg'" [alt]="image.label"/>
-		</div>
-		<div class="carousel-caption">
-			<h3>{{image.label}}</h3>
-		</div>
-	</ng-template>
-</ngb-carousel>
-
-<div *ngIf="images.length === 1", class="single-image">
-
-  <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label"/>
-
-  <div class="carousel-caption">
-    <h3>{{images[0].label}}</h3>
-  </div>
-
-</div>
+<app-carousel></app-carousel>
 
 <div id="main-container">
   <div class="container-titolo">
@@ -50,13 +31,5 @@
     <p class="paragrafo">Ecco un testo dentro al paragrafo</p>
   </div>
 </div>
-
-<div id ="contenitore-switch" [ngSwitch]="colore">
-  <div class="green" *ngSwitchCase="'green'" [style]="'background:' + colore"> questo div compare se è verde</div>
-  <div class="red" *ngSwitchCase="'red'" [style]="'background:' + colore"> questo div compare se è rosso</div>
-  <div class="blue" *ngSwitchCase="'blue'" [style]="'background:' + colore"> questo div compare se è blue</div>
-  <div class="default" *ngSwitchDeafult style="background-color: black"> questo div compare se è default</div>
-</div>
-
 
 <router-outlet></router-outlet>

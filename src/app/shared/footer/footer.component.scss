@@ -1,0 +1,31 @@
+@import "../../../styles/colors.scss";
+
+footer {
+  background-color: $primary-color-1;
+  justify-content: space-around;
+  height: 100px;
+  width: 100%;
+  padding: 4px;
+  display: flex;
+
+}
+
+h3 {
+  padding-top: 4px;
+  color: white;
+}
+
+.div-footer-1 {
+  color: white;
+  align-items: center;
+  display: flex;
+}
+
+.p-via {
+  font-size: 12px;
+  padding-right: 4px;
+  padding-top: 10px;
+}
+
+
+

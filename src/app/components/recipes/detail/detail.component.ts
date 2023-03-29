@@ -10,6 +10,8 @@ import { RecipeService } from 'src/app/services/recipe.service';
 })
 export class DetailComponent implements OnInit {
 
+  percorsoStelline = "../../../../assets/images/difficolta-"
+
   ricetta: Recipe;
 
   constructor(
@@ -19,10 +21,10 @@ export class DetailComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.onGetrecipe();
+    this.onGetRecipe();
   }
 
-  onGetrecipe(): void {
+  onGetRecipe(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));      //metodo snapshot paramMap
 
     this.recipeService.getRecipe(id).subscribe({

@@ -1,0 +1,38 @@
+@import "../../../../styles/colors.scss";
+
+
+
+.image {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 100%;
+}
+
+.titolo {
+  color: $primary-color-1;
+  text-align: center;
+  font-family: "Montserrat", sans-serif!important;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.diff {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.diff-num {
+  font-size: 20px;
+}
+
+.det-data {
+  text-align: right;
+}
+
+.difficoltà {
+  width: 100px;
+}

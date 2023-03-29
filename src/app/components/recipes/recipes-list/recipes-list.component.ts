@@ -3,13 +3,14 @@ import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-recipes-list',
+  templateUrl: './recipes-list.component.html',
+  styleUrls: ['./recipes-list.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class RecipesListComponent implements OnInit {
 
   ricette: Recipe[];
+  titoloRicetta: string;
 
   constructor(private recipeService: RecipeService) {}
 
@@ -17,11 +18,18 @@ export class HomeComponent implements OnInit {
     this.recipeService.getRecipes().subscribe({
       next: (response) => {
         this.ricette = response;
-        this.ricette = this.ricette.sort((a, b) => b._id - a._id).slice(0, 4);
       },
       error: (error) => {
         console.log(error);
       }
     })
+  }
+
+  riceviMessaggio(e: any) {
+    if(this.titoloRicetta == e) {
+      this.titoloRicetta = '';
+    } else {
+      this.titoloRicetta = e;
+    }
   }
 }

@@ -7,7 +7,10 @@
     <p class="paragrafo">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error modi nisi sint facilis. Doloremque reprehenderit asperiores eveniet magnam earum nobis provident repellat voluptatem rem, tempore, fuga illo, necessitatibus quisquam? Ea?</p>
   </div>
 
-  <app-recipes></app-recipes>
+  <div id="ultime-ricette">
+    <h2>Ultime ricette</h2>
+  <app-recipe-card [recipes]="ricette" [pag]="'home'"></app-recipe-card>
+  </div>
 </div>
 
 

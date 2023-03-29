@@ -19,6 +19,7 @@
 
 .card {
   text-align: center;
+  height: 465px;
 
   border-radius: 2rem !important;
 
@@ -26,6 +27,7 @@
     font-weight: 900;
     font-size: 16px;
     color: $primary-color-1;
+    height: 50px;
   }
 
   .card-text {

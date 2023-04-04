@@ -6,7 +6,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},    // va sempre messo in apertura

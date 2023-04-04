@@ -108,9 +108,10 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0" style="margin-left: 12px;">
-                      <input type="password" name="password" id="password" class="form-control" placeholder="password" formControlName="password"/>
+                    <mat-icon>lock</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <!-- <input type="password" name="password" id="password" class="form-control" placeholder="password" formControlName="password"/> -->
+                      <p-password [toggleMask]="true" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" ></p-password>
                       <label class="form-label" for="form3Example4c">Password</label>
                       <p class="help is-danger" *ngIf="form.get('password').hasError('required') && form.get('password').touched">Il campo password è obbligatorio</p>
                       <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern')">Il campo password deve contenere almeno un carattere speciale, una minuscola, una maiuscola ed un numero ed essre lungo da 8 a 16 char</p>
@@ -118,11 +119,12 @@
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <mat-icon>lock</mat-icon>
                     <div class="form-outline flex-fill mb-0 rep-pass">
                       <input type="password" name="ripetiPassword" id="ripetiPassword" class="form-control" formControlName="ripetiPassword"/>
                       <label class="form-label" for="form3Example4cd">Ripeti password</label>
                       <p class="help is-danger" *ngIf="!form.get('ripetiPassword').valid && form.get('ripetiPassword').touched">Il campo ripeti password è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">Attenzione la password inserita non combacia</p>
                     </div>
                   </div>
 

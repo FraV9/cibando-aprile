@@ -1,0 +1,29 @@
+<div class="caricamento" *ngIf="!(gruppiCombinati$ | async)">
+  <h2>Caricamento</h2>
+  <img class="immagine-caricamento" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921">
+</div>
+<ng-template [ngIf]="gruppiCombinati$ | async">
+  <div class="container-info">
+
+    <ul>
+      <h3>Clienti</h3>
+      <li *ngFor="let cliente of gruppi[0]">
+        nome: {{ cliente.name || cliente}}
+      </li>
+    </ul>
+
+    <ul>
+      <h3>Rivenditori</h3>
+    <li *ngFor="let cliente of gruppi[1]">
+      Rivenditore: {{ cliente.name || cliente}}
+    </li>
+    </ul>
+
+    <ul>
+      <h3>Marche</h3>
+      <li *ngFor="let cliente of gruppi[2]">
+        Marcha: {{ cliente.name || cliente }}
+      </li>
+    </ul>
+  </div>
+</ng-template>

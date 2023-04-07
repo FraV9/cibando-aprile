@@ -7,8 +7,8 @@ footer {
   width: 100%;
   padding: 4px;
   display: flex;
-
 }
+
 
 .icona-cibando {
   width: 80px;
@@ -31,6 +31,31 @@ h3 {
   font-size: 12px;
   padding-right: 4px;
   padding-top: 10px;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  footer {
+    height: 140px;
+    width: 100%;
+    padding: 4px;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .card-container {
+    height: 140px;
+    width: 45.5%;
+    padding: 4px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .card-container {
+    width: 30%;
+    height: 140px;
+    padding: 4px;
+  }
 }
 
 

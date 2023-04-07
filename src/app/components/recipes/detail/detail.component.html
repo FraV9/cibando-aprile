@@ -7,7 +7,7 @@
       <strong>difficoltà:</strong>
       <img [src]="percorsoStelline + ricetta.difficulty + '.png'" alt="" class="difficoltà">
     </div>
-    <p class="det-data">Ricetta pubblicata il {{ricetta.date}}</p>
+    <p class="det-data">Ricetta pubblicata il {{ricetta.createdAt | date}}</p>
   </div>
 </div>
 

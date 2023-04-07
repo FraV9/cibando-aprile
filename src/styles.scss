@@ -53,6 +53,27 @@ h2 {
   padding-top: 12px;
 }
 
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: $primary-color-1!important;
+  border-color: $primary-color-1!important;
+  color: $secondary-color-1!important;
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 480px) {
+  h2 {
+    font-size: 28px!important;
+  };
+
+  .carousel-caption {
+    top: 27rem;
+
+    h3 {
+      font-size: 29px;
+    }
+  }
+}
+
 
 
 /* Importing Bootstrap SCSS file. */

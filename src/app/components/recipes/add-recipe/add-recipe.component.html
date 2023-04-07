@@ -1,0 +1,101 @@
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 titolo">Aggiungi una ricetta</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon> restaurant</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="title" id="title" class="form-control" placeholder="titolo ricetta" formControlName="title"/>
+                      <label class="form-label" for="form3Example1c">Titolo ricetta</label>
+                      <p class="help is-danger" *ngIf="!form.get('title').valid && form.get('title').touched">Il campo titolo è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon> restaurant</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="description" id="description" class="form-control" placeholder="descrizione" formControlName="description" />
+                      <label class="form-label" for="form3Example3c">Descrizione ricetta</label>
+                      <p class="help is-danger" *ngIf="!form.get('description').valid && form.get('description').touched">Il campo descrizione è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon> restaurant</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="image" id="image" class="form-control" placeholder="immagine" formControlName="image"/>
+                      <label class="form-label" for="form3Example4c">Inserisci un'immagine</label>
+                      <p class="help is-danger" *ngIf="!form.get('image').valid && form.get('image').touched">Il campo immagine è obbligatorio</p>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon> restaurant</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="checkbox" value="true" name="published" id="published" class="check" placeholder="pubblicata" formControlName="published" />
+                      <label class="form-label" for="form3Example4cd">pubblicata</label>
+                      <!-- <p class="help is-danger" *ngIf="!form.get('published').valid && form.get('published').touched">Il campo pubblicazione è obbligatorio</p> -->
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon> restaurant</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="number" name="difficulty" id="difficulty" class="form-control" placeholder="difficulty" formControlName="difficulty"/>
+                      <label class="form-label" for="form3Example4cd">difficoltà</label>
+                      <p class="help is-danger" *ngIf="!form.get('difficulty').valid && form.get('difficulty').touched">Il campo nome è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid" (click)="openModal(modaleRicette)">Aggiungi Ricetta</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <!-- <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                  class="img-fluid" alt="Sample image">
+
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<ng-template #modaleRicette let-modal>
+  <div class="modal-header">
+    <h3>Riepilogo Ricetta</h3>
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <li><strong>titolo:</strong> {{ricettaInserita.title}}</li>
+    <li><strong>descrizione:</strong> {{ricettaInserita.description | slice: 0:200}}</li>
+    <li><strong>pubblicazione:</strong> {{ricettaInserita.published}}</li>
+    <li>{{ricettaInserita.createAt | date}}</li>
+    <li><strong>difficoltà:</strong> {{ricettaInserita.difficulty}}</li>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="onClose()">CHIUDI</button>
+    <button type="button" class="btn" (click)="onNewRecipe()" ngbAutoFocus>Inserisci Ricetta</button>
+  </div>
+
+</ng-template>

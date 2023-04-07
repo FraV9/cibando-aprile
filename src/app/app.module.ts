@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider'
+import { PaginatorModule } from 'primeng/paginator';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -18,6 +20,9 @@ import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component'
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { AddRecipeComponent } from './components/recipes/add-recipe/add-recipe.component';
+import { ChangeColorDirective } from './directives/change-color.directive';
+import { EsempioCombineComponent } from './components/esempio-combine/esempio-combine.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
     RecipeCardComponent,
     DetailComponent,
     RecipesListComponent,
-    SignUpComponent
+    SignUpComponent,
+    AddRecipeComponent,
+    ChangeColorDirective,
+    EsempioCombineComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,9 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
     FormsModule,
     ReactiveFormsModule,
     PasswordModule,
-    DividerModule
+    DividerModule,
+    PaginatorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

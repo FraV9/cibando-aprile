@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
     this.prendiRicette();
 
     this.prendiDatiUtente();
-
   }
 
   prendiDatiUtente() {
@@ -41,9 +40,8 @@ export class HomeComponent implements OnInit {
   }
 
   closeModal() {
-    localStorage.removeItem('name');
-    localStorage.removeItem('email');
-
+    // localStorage.removeItem('name');
+    // localStorage.removeItem('email');
     this.name = '';
     this.email = '';
   }

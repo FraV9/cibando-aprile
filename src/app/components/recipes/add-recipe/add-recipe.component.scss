@@ -1,0 +1,54 @@
+@import "../../../../styles/colors.scss";
+
+.p-md-5 {
+  padding: 0rem !important;
+}
+
+.mat-icon {
+  margin-bottom: 30px;
+  margin-right: 4px;
+}
+
+.help {
+  color: $primary-color-1;
+}
+
+.modal-content {
+  border: 5px $primary-color-1;
+}
+
+.modal-footer {
+  background-color: $primary-color-1!important;
+
+  button.btn {
+    background: white!important;
+}
+}
+
+.modal-header {
+  background-color: $primary-color-1;
+
+  h3 {
+    color: $secondary-color-1;
+    align-content: center;
+    display: contents;
+    font-size: large;
+  }
+
+  button.btn-close {
+    /* color: white; */
+    background-color: white;
+    opacity: 1;
+}
+}
+
+.btn-primary {
+  background-color: $primary-color-1;
+  border-color: $primary-color-1;
+}
+
+.titolo {
+  font-size: 35px!important;
+  color: #8e210b!important;
+  font-family: 'Homemade Apple', cursive !important;
+}

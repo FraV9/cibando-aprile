@@ -74,7 +74,7 @@
 </section> -->
 
 
-<section class="vh-100" style="background-color: #eee;">
+<!-- <section class="vh-100" style="background-color: #eee;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -89,9 +89,8 @@
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <mat-icon>person</mat-icon>
-                    <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="name" id="name" class="form-control" placeholder="scrivi il tuo nome" formControlName="name"/>
+                      <input type="text" name="name" id="name" class="form-control" placeholder="scrivi il tuo nome" formControlName="name" appChangeColor/>
                       <label class="form-label" for="form3Example1c">Il tuo nome</label>
                       <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
                     </div>
@@ -110,7 +109,6 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <mat-icon>lock</mat-icon>
                     <div class="form-outline flex-fill mb-0">
-                      <!-- <input type="password" name="password" id="password" class="form-control" placeholder="password" formControlName="password"/> -->
                       <p-password [toggleMask]="true" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" ></p-password>
                       <label class="form-label" for="form3Example4c">Password</label>
                       <p class="help is-danger" *ngIf="form.get('password').hasError('required') && form.get('password').touched">Il campo password è obbligatorio</p>
@@ -129,9 +127,25 @@
                   </div>
 
                   <div class="form-check d-flex justify-content-center mb-5">
+
+                    <div class="accordion" id="accordionTermini">
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#terminiServizio" aria-expanded="false" aria-controls="terminiServizio">
+                            Visualizza i termini di Servizio
+                          </button>
+                        </h2>
+                        <div id="terminiServizio" class="accordion-collapse collapse" data-bs-parent="#accordionTermini">
+                          <div class="accordion-body">
+                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <input class="form-check-input me-2" name="accetto" type="checkbox" value="" id="accetto"  formControlName="accetto"/>
                     <label class="form-check-label" for="form2Example3">
-                      Dichiaro di accettare i <a href="#!">Termini del servizio</a>
+                      Dichiaro di accettare i <a (click)="openModal(modaleServizi)">Termini del servizio</a>
                     </label>
                     <p class="help is-danger" *ngIf="form.get('accetto').hasError('required') && form.get('accetto').touched">Per proseguire è obbligatorio accettare le clausole</p>
                   </div>
@@ -155,5 +169,122 @@
       </div>
     </div>
   </div>
+</section> -->
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon>person</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" name="name" id="name" class="form-control" placeholder="scrivi il tuo nome" formControlName="name" appChangeColor/>
+                      <label class="form-label" for="form3Example1c">Inserisci Nome</label>
+                      <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon>email</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" name="email" id="email" class="form-control" placeholder="email" formControlName="email"/>
+                      <label class="form-label" for="form3Example3c">inserisci email</label>
+                      <p class="help is-danger" *ngIf="form.controls.email.hasError('required') &&form.get('email').touched">Il campo email è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.controls['email'].hasError('email') &&form.get('email').touched">Il campo email non contiene una email valida</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon>lock</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <p-password [toggleMask]="true" formControlName="password" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$" ></p-password>
+                      <label class="form-label" for="form3Example4c">Inserisci Password</label>
+                      <p class="help is-danger" *ngIf="form.get('password').hasError('required') && form.get('password').touched">Il campo password è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern')">Il campo password deve contenere almeno un carattere speciale, una minuscola, una maiuscola ed un numero ed essre lungo da 8 a 16 char</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <mat-icon>lock</mat-icon>
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" name="ripetiPassword" id="ripetiPassword" class="form-control" formControlName="ripetiPassword"/>
+                      <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                      <p class="help is-danger" *ngIf="!form.get('ripetiPassword').valid && form.get('ripetiPassword').touched">Il campo ripeti password è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.getError('diversa') && form.get('ripetiPassword').touched">Attenzione la password inserita non combacia</p>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+                    <label class="form-check-label" for="form2Example3">
+                      Dichiaro di accettare i <a (click)="openModal(modaleServizi)">Termini del servizio</a>
+                    </label>
+                    <p class="help is-danger" *ngIf="form.get('accetto').hasError('required') && form.get('accetto').touched">Per proseguire è obbligatorio accettare le clausole</p>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="button" class="btn btn-primary btn-lg" [disabled]="!form.valid" >Iscriviti</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                <img src="../../../assets/images/registrazione.jpg"
+                  class="img-fluid" alt="Sample image">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+
+
+<ng-template #modaleServizi let-modal>
+  <div class="modal-header">
+    <h3>Termini di Servizio</h3>
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur doloremque repudiandae expedita sunt quasi fugiat ullam alias? Maiores, numquam? Accusantium neque nulla sint totam? Voluptate minima dolore eum harum dolor mollitia in. Est, inventore minus repudiandae soluta sit id consequatur enim dicta ipsum ad vitae at consectetur fugiat! Dicta, ab!</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="modal.dismiss()">ANNULLA</button>
+    <button type="button" class="btn" (click)="modal.close()" ngbAutoFocus>AZIONE</button>
+  </div>
+
+</ng-template>
+
+<!-- <ng-template #modaleDue let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="close" (click)="modal.dismiss()"></button>
+    <h3>Modale Due</h3>
+  </div>
+
+  <div class="modal-body">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur doloremque repudiandae expedita sunt quasi fugiat ullam alias? Maiores, numquam? Accusantium neque nulla sint totam? Voluptate minima dolore eum harum dolor mollitia in. Est, inventore minus repudiandae soluta sit id consequatur enim dicta ipsum ad vitae at consectetur fugiat! Dicta, ab!</p>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn" (click)="modal.dismiss()">ANNULLA</button>
+    <button type="button" class="btn-primary" (click)="modal.close()" ngbAutoFocus>AZIONE</button>
+  </div>
+
+</ng-template> -->

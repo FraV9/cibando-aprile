@@ -18,14 +18,14 @@ export class DetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private recipeService: RecipeService
-  ){}
+  ) {}
 
   ngOnInit(): void {
     this.onGetRecipe();
   }
 
   onGetRecipe(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));      //metodo snapshot paramMap
+    const id = this.activatedRoute.snapshot.paramMap.get('_id');      //metodo snapshot paramMap
 
     this.recipeService.getRecipe(id).subscribe({
       next: (res) => {
@@ -40,7 +40,7 @@ export class DetailComponent implements OnInit {
   onGetRecipe2(): void {
     this.activatedRoute.params.subscribe((parametriUrl) => {                  //metodo param
 
-      const id = Number(parametriUrl['_id']);
+      const id = parametriUrl['_id'];
 
       this.recipeService.getRecipe(id).subscribe({
         next: (res) => {

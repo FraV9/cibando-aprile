@@ -1,0 +1,32 @@
+.caricamento {
+  h2{
+    text-align: center;
+    padding-top: 40px;
+  }
+  img{
+    width: 150px;
+    align-items: center;
+  }
+
+  display: flex;
+  flex-direction: column;
+  // height: auto;
+}
+
+h3{
+  color: #8e210b!important;
+  font-family: 'Homemade Apple', cursive !important;
+  font-size: 30px;
+}
+
+.container-info {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  justify-content: space-around;
+  // margin-bottom: 449px;
+  margin-top: 148px;
+  margin-bottom: 301px;
+  font-size: 16px;
+
+}

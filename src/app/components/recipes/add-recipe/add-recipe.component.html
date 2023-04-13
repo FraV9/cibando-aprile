@@ -1,4 +1,4 @@
-<section class="vh-100" style="background-color: #eee;">
+<section class="vh-150" style="background-color: white;">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
@@ -23,7 +23,7 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <mat-icon> restaurant</mat-icon>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="description" id="description" class="form-control" placeholder="descrizione" formControlName="description" />
+                      <ckeditor [editor]="Editor" [config]="editorConfig" name="description" class="descrizioneRicetta" formControlName="description" />
                       <label class="form-label" for="form3Example3c">Descrizione ricetta</label>
                       <p class="help is-danger" *ngIf="!form.get('description').valid && form.get('description').touched">Il campo descrizione è obbligatorio</p>
                     </div>
@@ -78,7 +78,6 @@
   </div>
 </section>
 
-
 <ng-template #modaleRicette let-modal>
   <div class="modal-header">
     <h3>Riepilogo Ricetta</h3>
@@ -97,5 +96,4 @@
     <button type="button" class="btn" (click)="onClose()">CHIUDI</button>
     <button type="button" class="btn" (click)="onNewRecipe()" ngbAutoFocus>Inserisci Ricetta</button>
   </div>
-
 </ng-template>

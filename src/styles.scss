@@ -59,6 +59,15 @@ h2 {
   color: $secondary-color-1!important;
 }
 
+.p-password {
+  width: 100%!important;
+}
+
+.descrizioneRicetta .ck-editor__editable {
+  min-height: 200px!important;
+  max-height: 200px!important;
+}
+
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
   h2 {
@@ -71,6 +80,16 @@ h2 {
     h3 {
       font-size: 29px;
     }
+  }
+}
+
+.form-login .form-line .p-password {
+  width: 100%!important;
+  margin-left: 0px!important;
+
+  .p-inputtext {
+    border: none;
+    padding: 0px;
   }
 }
 

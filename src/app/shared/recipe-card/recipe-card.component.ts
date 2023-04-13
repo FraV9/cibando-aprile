@@ -2,13 +2,16 @@ import { Component, EventEmitter, Input, Output, OnInit, OnDestroy } from '@angu
 import { Observable, first, take, map } from 'rxjs';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe.service';
+import { MessageService } from 'primeng/api';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-recipe-card',
   templateUrl: './recipe-card.component.html',
-  styleUrls: ['./recipe-card.component.scss']
+  styleUrls: ['./recipe-card.component.scss'],
+  providers: [MessageService]
 })
-export class RecipeCardComponent implements OnDestroy {
+export class RecipeCardComponent implements OnInit ,OnDestroy {
 
  @Input() pag: string; //grazie a questa variabile sappiamo da che pagina arriviamo
 
@@ -18,8 +21,9 @@ export class RecipeCardComponent implements OnDestroy {
  ricetteTotali: number;
  page = 1;
  ricettePerPagina = 4;
-
  ricette: Recipe[];
+
+ ruolo: any;
 
  recipes$: Observable<Recipe[]> = this.recipeService.getRecipes().pipe(
   // map(response => response.filter(ricetteFiltrate => ricetteFiltrate.difficulty <= 5)), //opzionale
@@ -30,12 +34,18 @@ export class RecipeCardComponent implements OnDestroy {
 
 
  constructor(
-  private recipeService: RecipeService
+  private recipeService: RecipeService,
+  private messageService: MessageService,
+  private userService: UserService
  ){}
 
-  // ngOnInit(): void {
-  //   this.prendiRicette();
-  // }
+  ngOnInit(): void {
+    if(JSON.parse(localStorage.getItem('user')) != null) {
+      this.userService.userRole.subscribe({
+        next: res => this.ruolo = res
+      })
+    }
+  }
 
   ngOnDestroy(): void {
     console.log('utente uscito dal componente');

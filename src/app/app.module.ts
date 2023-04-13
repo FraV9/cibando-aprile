@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider'
 import { PaginatorModule } from 'primeng/paginator';
+import { ToastModule } from 'primeng/toast'
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -23,6 +26,8 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { AddRecipeComponent } from './components/recipes/add-recipe/add-recipe.component';
 import { ChangeColorDirective } from './directives/change-color.directive';
 import { EsempioCombineComponent } from './components/esempio-combine/esempio-combine.component';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,9 @@ import { EsempioCombineComponent } from './components/esempio-combine/esempio-co
     SignUpComponent,
     AddRecipeComponent,
     ChangeColorDirective,
-    EsempioCombineComponent
+    EsempioCombineComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,9 @@ import { EsempioCombineComponent } from './components/esempio-combine/esempio-co
     PasswordModule,
     DividerModule,
     PaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

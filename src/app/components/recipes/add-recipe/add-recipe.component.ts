@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { take } from 'rxjs';
 
+import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
+
 @Component({
   selector: 'app-add-recipe',
   templateUrl: './add-recipe.component.html',
@@ -32,7 +34,46 @@ export class AddRecipeComponent {
     image: new FormControl('', Validators.required),
     difficulty: new FormControl('', Validators.required),
     published: new FormControl(false),
-  })
+  });
+
+  Editor = ClassicEditorBuild;
+
+  editorConfig = {
+    toolbar: {
+        items: [
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'indent',
+            'outdent',
+            '|',
+            'codeBlock',
+            'blockQuote',
+            'insertTable',
+            'undo',
+            'redo',
+        ]
+    },
+    image: {
+        toolbar: [
+            'imageStyle:full',
+            'imageStyle:side',
+            '|',
+            'imageTextAlternative'
+        ]
+    },
+    table: {
+        contentToolbar: [
+            'tableColumn',
+            'tableRow',
+            'mergeTableCells'
+        ]
+    },
+    height: 300,
+};
 
   onSubmit() {
     // console.log(this.form.value);

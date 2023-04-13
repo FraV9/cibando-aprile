@@ -2,7 +2,9 @@
   <img [src]="ricetta.image" width="100%">
   <div>
     <h2 class="titolo">{{ricetta.title}}</h2>
-    <p class="det-description">{{ricetta.description}}</p>
+    <p>
+      <span [innerHTML]="ricetta.description"></span>
+    </p>
     <div class="row">
       <strong>difficoltà:</strong>
       <img [src]="percorsoStelline + ricetta.difficulty + '.png'" alt="" class="difficoltà">

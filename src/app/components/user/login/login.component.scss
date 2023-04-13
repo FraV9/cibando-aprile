@@ -1,0 +1,56 @@
+@import "../../../../styles/colors.scss";
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  form{
+    width: 40%;
+    margin: auto;
+    padding: 30px;
+    border: 2px solid $primary-color-1;
+    border-radius: 0.7rem;
+
+    .form-line {
+      margin-bottom: 24px;
+
+      label {
+        font-weight: bold;
+        margin-bottom: 0px;
+      }
+    }
+    .form-line.entra {
+      text-align: center;
+    }
+  }
+
+  div#registrati {
+    position: relative;
+    top: -80px;
+
+    a {
+      text-decoration: none!important;
+      color: $primary-color-1;
+    }
+  }
+
+  .password {
+    width: 100%!important;
+    height: 38px!important;
+  }
+
+  .btn.btn-primary {
+    background-color: $primary-color-1;
+    color: white;
+    border-color: $primary-color-1;
+    margin-top: 8px;
+  }
+
+
+}
+
+

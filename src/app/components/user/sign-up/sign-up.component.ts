@@ -60,7 +60,7 @@ export class SignUpComponent {
 
     this.userService.datiUtente.next(userHome);
 
-    // this.router.navigate(['home']);
+    this.router.navigate(['home']);
   }
 
   openModal(content: any, titolo?: string) {

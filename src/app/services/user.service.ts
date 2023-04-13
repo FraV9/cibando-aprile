@@ -9,12 +9,20 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   apiBaseUrl = 'api/users';
-
   datiUtente = new ReplaySubject;
+  userRole = new ReplaySubject;
+
 
   constructor(private http: HttpClient) { }
 
-  addUser(user: any): Observable<User> {
+  addUser(user: any): Observable<any> {
     return this.http.post<any>(`${this.apiBaseUrl}/signup`, user);
   }
+
+  getUser(email: string): Observable<any> {
+    const emailUtente= {'email': email};
+    return this.http.post<any>(`${this.apiBaseUrl}/user`, emailUtente);
+  }
+
+
 }

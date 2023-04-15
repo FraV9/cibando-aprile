@@ -10,42 +10,29 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
-import { DividerModule } from 'primeng/divider'
-import { PaginatorModule } from 'primeng/paginator';
-import { ToastModule } from 'primeng/toast'
+import { DividerModule } from 'primeng/divider';
+import { ToastModule } from 'primeng/toast';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { RecipesModule } from './components/recipes/recipes.module';
+import { UserModule } from './components/user/user.module';
 
-import { RecipesComponent } from './components/recipes/recipes.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { RecipeCardComponent } from './shared/recipe-card/recipe-card.component';
-import { DetailComponent } from './components/recipes/detail/detail.component';
-import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
-import { SignUpComponent } from './components/user/sign-up/sign-up.component';
-import { AddRecipeComponent } from './components/recipes/add-recipe/add-recipe.component';
+
+
 import { ChangeColorDirective } from './directives/change-color.directive';
 import { EsempioCombineComponent } from './components/esempio-combine/esempio-combine.component';
-import { LoginComponent } from './components/user/login/login.component';
-import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarouselComponent,
-    RecipesComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    RecipeCardComponent,
-    DetailComponent,
-    RecipesListComponent,
-    SignUpComponent,
-    AddRecipeComponent,
     ChangeColorDirective,
     EsempioCombineComponent,
-    LoginComponent,
-    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -57,10 +44,11 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     ReactiveFormsModule,
     PasswordModule,
     DividerModule,
-    PaginatorModule,
     HttpClientModule,
     ToastModule,
-    CKEditorModule
+    CKEditorModule,
+    RecipesModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

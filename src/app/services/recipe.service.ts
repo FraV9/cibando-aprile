@@ -13,6 +13,7 @@ export class RecipeService {
 
 
   apiBaseUrl = 'api/recipes';
+  cerca = new ReplaySubject();
 
   constructor(private http: HttpClient) {}
 
@@ -37,4 +38,7 @@ export class RecipeService {
     return this.http.post<any>(`${this.apiBaseUrl}/`, recipe);
   }
 
+  searchRecipes(text: any): Observable<Recipe[]> {
+    return this.http.get<Recipe[]>(`${this.apiBaseUrl}/cerca/${text}`);  // query params
+  }
 }

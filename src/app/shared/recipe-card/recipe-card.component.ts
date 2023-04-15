@@ -30,9 +30,6 @@ export class RecipeCardComponent implements OnInit ,OnDestroy {
   map(res => this.ricette = res)
  );
 
-
-
-
  constructor(
   private recipeService: RecipeService,
   private messageService: MessageService,
@@ -40,9 +37,12 @@ export class RecipeCardComponent implements OnInit ,OnDestroy {
  ){}
 
   ngOnInit(): void {
-    if(JSON.parse(localStorage.getItem('user')) != null) {
-      this.userService.userRole.subscribe({
-        next: res => this.ruolo = res
+    if(JSON.parse(localStorage.getItem('user')) !== null) {
+      const user = localStorage.getItem('user');
+      const email = (JSON.parse(user)).email;
+
+      this.userService.getUser(email).subscribe({
+        next: res => this.ruolo = res.role
       })
     }
   }

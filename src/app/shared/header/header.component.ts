@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,13 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements DoCheck {  // DoCheck, lifeciclehook
 
   user: any;
+  testo: string;
 
-  constructor(private router: Router, public authService: AuthService){}
+  constructor(
+    private router: Router,
+    public authService: AuthService,
+    private recipeService: RecipeService
+    ){}
 
   ngDoCheck(): void {
     if(JSON.parse(localStorage.getItem('user')) !== null) {
@@ -21,7 +27,12 @@ export class HeaderComponent implements DoCheck {  // DoCheck, lifeciclehook
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/login']);
+  }
+
+  cerca(){
+    this.recipeService.cerca.next(this.testo)
+    this.router.navigate(['/ricette/results']);
   }
 
 }

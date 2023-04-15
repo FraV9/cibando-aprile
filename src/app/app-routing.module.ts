@@ -17,16 +17,12 @@ import { LoggedInGuard } from './logged-in.guard';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},    // va sempre messo in apertura
   {path: 'home', component: HomeComponent},
-  {path: 'ricette', component: RecipesComponent, children: [
-    {path: 'dettaglio/:title/:_id', component: DetailComponent},
-    {path: '', pathMatch: 'full', component: RecipesListComponent},
-    {path: 'addRecipe', pathMatch: 'full', component: AddRecipeComponent}
-  ]},
   {path: 'combine', component: EsempioCombineComponent},
-  {path: 'sign-up', component: SignUpComponent},
-  {path: 'profilo', component: ProfileComponent, canActivate: [LoggedInGuard]},
-  {path: 'login', component: LoginComponent},
-
+  // {path: 'sign-up', component: SignUpComponent},
+  // {path: 'profilo', component: ProfileComponent, canActivate: [LoggedInGuard]},
+  // {path: 'login', component: LoginComponent},
+  {path: 'user', loadChildren: () => import("./components/user/user.module").then(modulo => modulo.UserModule)},
+  {path: 'ricette', loadChildren: () => import("./components/recipes/recipes.module").then(modulo => modulo.RecipesModule)},
   {path: '**', redirectTo: 'home'}                      // va sempre messo in chiusura
 ];
 
